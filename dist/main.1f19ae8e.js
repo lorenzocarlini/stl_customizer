@@ -45880,9 +45880,9 @@ scene.add(textMesh);
 var font_loader = new _FontLoader.FontLoader();
 var textmesh_input = {
   text_field: "amogus",
-  position_x: -45,
+  position_x: 0,
   position_y: 0,
-  position_z: 0,
+  position_z: 5,
   writable: true
 };
 var box = new THREE.Box3();
@@ -45890,6 +45890,12 @@ var box = new THREE.Box3();
 function generate_text() {
   var text_mesh_pholder = new THREE.Mesh();
   font_loader.load(_gentilis_boldTypeface.default, function (font) {
+    var test = scene.getObjectByName('text');
+
+    if (test) {
+      scene.remove(scene.getObjectByName('text'));
+    }
+
     var textGeometry = new _TextGeometry.TextGeometry(textmesh_input.text_field, {
       size: 20,
       height: 4,
@@ -45899,32 +45905,38 @@ function generate_text() {
     text_mesh_pholder = new THREE.Mesh(textGeometry, textMaterial);
     text_mesh_pholder.position.x = textmesh_input.position_x;
     text_mesh_pholder.position.y = textmesh_input.position_y;
+    text_mesh_pholder.position.y = textmesh_input.position_z;
     text_mesh_pholder.rotation.x = -Math.PI / 2;
     text_mesh_pholder.name = 'text';
     scene.add(text_mesh_pholder);
-    box = new THREE.Box3().setFromObject(scene.getObjectByName("text"));
+    box = new THREE.Box3().setFromObject(scene.getObjectByName('text'));
+    scene.getObjectByName('text').position.x -= (box.max.x - box.min.x) / 2;
+    scene.getObjectByName('text').position.y -= (box.max.y - box.min.y) / 2; //scene.getObjectByName('text').position.z -= (box.max.z - box.min.z)/2;
+
+    console.log(box.max.x);
+    console.log(scene.getObjectByName('text').position.x);
+
+    function generate_base() {
+      var geometry = new THREE.BoxBufferGeometry(box.max.x - box.min.x + 5, box.max.z - box.min.z + 5, box.max.y - box.min.y);
+      var material = new THREE.MeshBasicMaterial({
+        color: 0x00ff00
+      });
+      var base = new THREE.Mesh(geometry, material);
+      base.position.x = 1 + (box.max.x - box.min.x) / 2; //text_mesh_pholder.position.x + box.max.x-  box.min.x;
+
+      base.position.y = 1 + (box.max.y - box.min.y) / 2;
+      base.position.z = 0;
+      text_mesh_pholder.rotation.x = -Math.PI / 2;
+      base.name = "base";
+      scene.getObjectByName('text').add(base);
+    }
+
+    generate_base();
   });
 }
 
-generate_text();
-/*
-var size = box.getSize()
-const basemesh_input = {
-    size_x: box.max.x - box.min.x,
-    size_y: box.max.y - box.min.y,
-    size_z: box.max.z - box.min.z
-}
-
-
-function generate_base() {
-    const geometry = new THREE.BoxBufferGeometry(basemesh_input.size_x,1,1);
-    const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add( cube );
-}
-generate_base()
-
-*/
+generate_text(); //console.log(basemesh_input.size)
+//var size = box.getSize()
 //Keychain base
 
 /*
@@ -45951,7 +45963,7 @@ text_folder.add(textmesh_input, 'position_z', -100, 100).onChange(function (meme
   scene.getObjectByName('text').position.set(textmesh_input.position_x, textmesh_input.position_y, textmesh_input.position_z);
 });
 text_folder.add(textmesh_input, 'text_field').onChange(function (meme) {
-  scene.remove(scene.getObjectByName('text')), generate_text();
+  generate_text();
 }); //cubeFolder.add(cube.rotation, 'y', 0, Math.PI * 2)
 //cubeFolder.add(cube.rotation, 'z', 0, Math.PI * 2)
 
@@ -45975,7 +45987,7 @@ function exportBinary() {
   var result = exporter.parse(scene.getObjectByName('text'), {
     binary: true
   });
-  saveArrayBuffer(result, 'box.stl');
+  saveArrayBuffer(result, 'keychain.stl');
 } //Bounding Box
 //console.log( box.min, box.max, box.getSize() );
 //Interaction
@@ -46046,7 +46058,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36819" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
