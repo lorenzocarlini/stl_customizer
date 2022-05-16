@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 include "db_connect.php";
 
 
@@ -8,9 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $q1 ="select * from public.user where email = $1 and password =$2";
     $result = pg_query_params($dbconn, $q1, array($email, $hashpassword));
     if($line=pg_fetch_array($result,null,PGSQL_ASSOC)){ 
-        $name = $line['name'];
         //echo "Login Successfully";  
-        header("Location: ./../index2.php?name=$name");  
+        
+        
+        $_SESSION['id'] = $line['id'];
+
+        $_SESSION['name'] = $line['name'];
+
+        header("Location: ./../index.php");  
+        exit();
     }else{
         
         echo "Invalid Details";

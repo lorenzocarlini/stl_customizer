@@ -65,18 +65,37 @@
                 </li>
               </ul>
               <ul class="navbar-nav d-flex flex-row ms-auto me-3">
+                
+                <!-- If already logged in -->
+                <?php  if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+                if (isset($_SESSION['id']) && isset($_SESSION['name'])) {
+                ?>
                 <li class="nav-item dropdown  me-3 me-lg-0">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
-              alt="" loading="lazy" />
+              alt="" loading="lazy" /> <?php echo $_SESSION['name']; ?>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Action</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Log out</a></li>
+                    <li><a class="dropdown-item" href="./logout.php">Log out</a></li>
                   </ul>
                 </li>
+
+                <!-- Not logged in -->
+                <?php 
+                }else{
+                ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="./login/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./login/register.html">Create Account</a>
+                </li>
+                <?php 
+                }
+                ?>
               </ul>
             </div>
           </div>
