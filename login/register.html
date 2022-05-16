@@ -28,24 +28,23 @@
         
                         <h2 class="fw-bold mb-5 text-uppercase">Create Account</h2>
 
+                        <form action="register.php" method="post">
+                            <div class="form-outline form-white mb-4">
+                            <input type="text" id="name" class="form-control form-control-lg" placeholder="Your username" name="name" />
+                            <label class="form-label" for="name">Username</label>
+                            </div>
 
-                        <div class="form-outline form-white mb-4">
-                        <input type="username" id="typeUsernameX" class="form-control form-control-lg" placeholder=" Your username" />
-                        <label class="form-label" for="typeUsernameX">Username</label>
-                        </div>
-
-                        <div class="form-outline form-white mb-4">
-                        <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="email@example.com" />
-                        <label class="form-label" for="typeEmailX">Email</label>
-                        </div>
-        
-                        <div class="form-outline form-white mb-4">
-                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                        <label class="form-label" for="typePasswordX">Password</label>
-                        </div>
-                
-                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Create Account</button>
-        
+                            <div class="form-outline form-white mb-4">
+                            <input type="email" id="email" class="form-control form-control-lg" placeholder="email@example.com" name="email" />
+                            <label class="form-label" for="email">Email</label>
+                            </div>
+            
+                            <div class="form-outline form-white mb-4">
+                            <input type="password" id="password" class="form-control form-control-lg" name="password" />
+                            <label class="form-label" for="password">Password</label>
+                            </div>
+                            <input id="submit" name="submit" type="submit" class="btn btn-outline-light btn-lg px-5" value="Create Account"> 
+                        </form>
                     </div>
         
                     <div>
