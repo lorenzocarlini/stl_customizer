@@ -85,28 +85,38 @@ body {
     color:#000;
 }
 
-#cards-container{
-    padding: 5rem;
-}
-.card {
-    background: #000;
-    max-width: 20rem;
-    max-height: 30rem;
-}
 
-.card-title {
-    color: #fff;
-}
 
-.card-text {
-    color: #fff;
-}
-#carouselExampleCaptions {
-    max-width: 50%;
 
-}
+
+
+
 .carousel-item {
-    height: 32rem;
+    background: rgb(0, 0, 0);
+    height: 42rem;
+    position: relative;
+
+}
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+}
+#main-link {
+    position: absolute;
+    top: 20%;
+    padding: 50px; 
+    z-index: 3;
+}
+
+#main-button {
+    background-color: red;
+    border:1px solid black;
+
 }
 
 .carousel-caption p {

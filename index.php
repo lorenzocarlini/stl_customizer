@@ -52,16 +52,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Pull request</a>
+                  <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Issues</a>
+                  <a class="nav-link" href="#">Create</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Marketplace</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Explore</a>
+                  <a class="nav-link" href="#">About Us</a>
                 </li>
               </ul>
               <ul class="navbar-nav d-flex flex-row ms-auto me-3">
@@ -106,60 +106,41 @@
     </div>
 
     <main>
-      <!-- centro pagina -->
-      <header class="page-header header container-fluid">
-        <div class="overlay"></div>
-        <div class="description">
-          <h1>pagina principale!</h1>
-          <p>per adesso è tutto quanto work in progress</p>
-          <button class="btn btn-outline-secondary btn-lg">Dimmi di più!</button>
-        </div>
-      </header>
+    
+      <div class="container-fluid position-relative p-0">
+          <!-- carousel -->
+          <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="overlay-image" style="background-image:url(./img/3d_print_3.jpg);">
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="overlay-image" style="background-image:url(./img/3d_print_2.jpg);">
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="overlay-image" style="background-image:url(./img/3d_print_1.jpg);">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="container" id="main-link">
+            <h2>Create your text now!</h2>
+            <p>just try it</p>
+            <a href="#" class="btn btn-lg btn-primary" id="main-button"> Let's go!</a>
+          </div>
+      </div>
     </main>
 
-
-    <!-- carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide p-4 start-50 translate-middle-x " data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/amogus.jpg" class="rounded mx-auto d-block w-50 h-50"  alt="carousel-img">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="img/amogus.jpg" class="rounded mx-auto d-block w-50 h-50"  alt="carousel-img">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="img/amogus.jpg" class="rounded mx-auto d-block w-50 h-50"  alt="carousel-img">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    
 
         <!-- footer -->
-    <div class="container">
+    <div class="container position-relative">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">

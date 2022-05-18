@@ -6,9 +6,16 @@ include "db_connect.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
+
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $confirmPassword = $_POST['confirmPassword'];
+
+  //validation
+  if(empty($name) || empty($email) || empty($password) || empty($confirmPassword)){
+    die('Please fill all requests');
+  }
 
   //check if email already in
   $q1=" select * from public.user where email = $1";
