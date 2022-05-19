@@ -9,28 +9,30 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/style-login.css">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-
-
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/register.js"></script>
 
 
 </head>
 <body>
+
+
     <main>
         <!-- login form -->
         <section class="vh-100 gradient-custom">
             <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white">
+                <div class="card">
                     <div class="card-body p-5 text-center">
         
                     <div class="mb-md-5 mt-md-4 pb-5">
         
                         <h2 class="fw-bold mb-5 text-uppercase">Create Account</h2>
 
-                        <form action="register.php" method="post">
+                        <form name="createAccountForm" action="register.php" method="post" onsubmit="return validateForm();">
                             <div class="form-outline form-white mb-4">
-                            <input type="text" id="name" class="form-control form-control-lg" placeholder="Your username" name="name" />
+                            <input type="text" id="name" class="form-control form-control-lg" placeholder="Your username" name="name"/>
                             <label class="form-label" for="name">Username</label>
                             </div>
 
@@ -40,20 +42,20 @@
                             </div>
             
                             <div class="form-outline form-white mb-4">
-                            <input type="password" id="password" class="form-control form-control-lg" name="password" />
+                            <input type="password" id="password" class="form-control form-control-lg" name="password" minlength="6" maxlength="14"/>
                             <label class="form-label" for="password">Password</label>
                             </div>
 
 
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="confirmPassword" class="form-control form-control-lg" name="confirmPassword" />
-                                <label class="form-label" for="confirmpPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-control form-control-lg" name="confirmPassword" minlength="6" maxlength="14"/>
+                                <label class="form-label" for="confirmPassword">Confirm Password</label>
                             </div>
 
                             <input id="submit" name="submit" type="submit" class="btn btn-outline-light btn-lg px-5" value="Create Account"> 
                         </form>
                     </div>
-        
+                    <p id="JSError" ></p>
                     <div>
                         <p class="mb-0">Already have an account? <a href="./login.html" class="text-white-50 fw-bold">Login</a>
                         </p>

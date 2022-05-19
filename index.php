@@ -27,24 +27,15 @@
     <script src="js/main.js"></script>
 
 
-    <div class="top-bar">
-        <div class="container">
-          <div class="col-12 text-end">
-            <p><a href="tel:+393806486918">Chiamaci al 777</a></p>
-          </div>
-        </div>
-    </div>
-
-
     
     <div class="container overflow-hidden"></div>
       <div class="row g-1">
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-black navbar-expand-lg ">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
-              <img src="./img/3dstuff.png" class="d-inline-block align-text-top" alt=""  width="167" height="62" ></img>
+              <img src="./img/logo2.png" class="d-inline-block align-text-top" alt="logo"  width="64" height="64" ></img>
             </a>
             <button class="navbar-toggler" style="margin-right:5px !important;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -72,7 +63,7 @@
                 ?>
                 <li class="nav-item dropdown  me-3 me-lg-0">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
+                    <img src="./img/profile.png" class="rounded-circle" height="44"
               alt="" loading="lazy" /> <?php echo $_SESSION['name']; ?>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
@@ -144,15 +135,15 @@
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <img src="./img/3dstuff.png" class="d-inline-block align-text-top" alt=""  width="167" height="62" ></img>
+            <img src="./img/logo2.png" class="d-inline-block align-text-top" alt=""  width="64" height="64" ></img>
           </a>
           <span class="text-muted">© 2021 Fabbrica del lavoro, Inc</span>
         </div>
     
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
           <li class="ms-3"><a class="text-muted" href="#"></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><img src="./img/instagram_icon.png" class="d-inline-block align-text-top" alt=""></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><img src="./img/facebook-logo.png" class="d-inline-block align-text-top" alt="" width="50" height="50"></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><img src="./img/insta-logo.png" class="d-inline-block align-text-top" alt="" width="50" height="50"></a></li>
         </ul>
       </footer>
     </div>

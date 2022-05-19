@@ -3,44 +3,31 @@ body{
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 24px;
-}
-
-.top-bar {
-    background: rgba(33,37,41,255);
-    height: 2.8rem;
-    padding: 0.1rem;
-}
-
-.top-bar a{
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-body {
     padding: 0;
     margin: 0;
-    background-color: rgba(33,37,41,255);
+    background-color: #2b2d42;
 }
 
 
-.navbar-light {
-    background: rgb(255, 255, 255);
-    border:1px solid rgb(255, 0, 0);
-    border-radius: 0;
+.navbar-black{
+    background-color: #2b2d42;
+}
+.nav-link {
+    color: #EDF2F4;
+}
+.nav-link:hover{
+    color: #D90429;
+}
+.nav-link:active {
+    color: #EDF2F4;
+}
+.nav-link:focus {
+    color: #D90429;
+}
+#navbarDropdownMenuLink img {
+    padding-right: 5px;
 }
 
-#side-navbar {
-    color: white;
-}
-
-.header {
-    background-image: url('../../img/onda.jpg');
-    background-size:cover;
-    background-position:0 0;
-    background-repeat: no-repeat;
-    min-height: 100%;
-}
 .overlay {
     position:absolute;
     min-height: 100%;
@@ -49,40 +36,17 @@ body {
     top: inherit;
     background: rgba(0, 0, 0, 0.5);
 }
-#login-button {
-    background: white;
-}
-#login-button:hover {
-    border:1px solid red;
-    background: red;
-}
-#signup-button {
-    background: blue;
-}
-#signup-button:hover {
-    border:1px solid red;
-    background: red;
-}
 
-.description {
-    position:relative;
-    top: 50%;
-    text-align: center;
-}
-.description h1 {
-    color: red;
-}
 
-.description button {
-    border:1px solid black;
-    background: white;
-    border-radius: 0;
-    color:black;
+
+
+#main-button {
+    background-color: #D90429;
+    border:1px solid #2B2D42;
 }
-.description button:hover {
-	border:1px solid red;
-    background:#fff;
-    color:#000;
+#main-button:hover {
+    background-color: #EDF2F4;
+    color: #8D99AE;
 }
 
 
@@ -111,12 +75,6 @@ body {
     top: 20%;
     padding: 50px; 
     z-index: 3;
-}
-
-#main-button {
-    background-color: red;
-    border:1px solid black;
-
 }
 
 .carousel-caption p {
