@@ -8,9 +8,6 @@
     <link rel="shortcut icon" href="img/planet.ico">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/style-checkout.css">
-    <script src="../js/jquery-3.6.0.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-
 
 </head>
 <body>
@@ -29,13 +26,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
+                  <a class="nav-link" href="./index.php">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Create</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./checkout.php">Marketplace</a>
+                  <a class="nav-link active" href="#">Marketplace</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">About Us</a>
@@ -134,65 +131,55 @@
     </div>
 
 
+
+
     <div class="row">
         <div id="billing">
             <div class="col-lg-12">
                 <h4 class="mb-3">Shipping address</h4>
-                <form class="needs-validation" novalidate="">
+                <form name="checkoutForm" action="checkout.php" method="post" onsubmit="return validateForm();">
                 <div class="row g-3">
                     <div class="col-sm-6 pe-sm-2">
                     <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Valid first name is required.
-                    </div>
+                    <input type="text" id="firstName" class="form-control" placeholder="" name="firstName"/>
+                    <p id="firstNameJS"></p>
                     </div>
         
                     <div class="col-sm-6 ps-sm-2">
                     <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Valid last name is required.
-                    </div>
+                    <input type="text" class="form-control" id="lastName" placeholder="" name="lastName"/>
+                    <p id="lastNameJS"></p>
                     </div>
         
         
                     <div class="col-12">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
-                    </div>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" >
+                    <p id="addressJS"></p>
                     </div>
         
                     <div class="col-md-5 pe-md-2">
                     <label for="country" class="form-label">Country</label>
-                    <select class="form-select" id="country" required="">
+                    <select class="form-select" id="country">
                         <option value="" selected="selected">Choose...</option>
-                        <option>United States</option>
+                        <option value="Italy">Italy</option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a valid country.
-                    </div>
+                    <p id="countryJS"></p>
                     </div>
         
                     <div class="col-md-4 px-md-2">
-                    <label for="state" class="form-label">State</label>
-                    <select class="form-select" id="state" required="">
+                    <label for="region" class="form-label">Region</label>
+                    <select class="form-select" id="region">
                         <option value="" selected="selected">Choose...</option>
-                        <option>California</option>
+                        <option value="Lazio">Lazio</option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please provide a valid state.
-                    </div>
+                    <p id="regionJS"></p>
                     </div>
         
                     <div class="col-md-3 ps-md-2">
-                    <label for="zip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="zip" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Zip code required.
-                    </div>
+                    <label for="cap" class="form-label">Cap</label>
+                    <input type="text" class="form-control" id="cap" placeholder="" maxlength="5">
+                    <p id="capJS"></p>
                     </div>
                 </div>
         
@@ -230,26 +217,29 @@
                 <div class="row gy-3">
                     <div class="col-md-6 pe-md-2">
                     <label for="cc-name" class="form-label">Name on card</label>
-                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                    <input type="text" class="form-control" id="cc-name" placeholder="">
                     <small class="text-muted">Full name as displayed on card</small>
-                    <div class="invalid-feedback">
-                        Name on card is required
-                    </div>
+                    <p id="cc_nameJS"></p>
                     </div>
         
                     <div class="col-md-6 ps-md-2">
                     <label for="cc-number" class="form-label">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Credit card number is required
-                    </div>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" maxlength="16">
+                    <p id="cc_numberJS"></p>
                     </div>
         
-                    <div class="col-md-3 pe-md-2">
-                    <label for="cc-expiration" class="form-label">Expiration</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Expiration date required
+
+                    <div class="col-md-3" >
+                    <label for="digit" class="form-label">Expiration</label>
+                    <div class="container">
+                        <div class="digits row g-0"> 
+                            <div class="col">
+                            <input type="text" class="form-control" id="digit" maxlength="2" name="digit1" placeholder="MM"/>
+                            </div>
+                            <div class="col">
+                            <input type="text" class="form-control" id="digit2" maxlength="2" name="digit2" placeholder="AA"/>
+                            </div>
+                        </div>
                     </div>
                     </div>
         
@@ -268,7 +258,7 @@
                     <button class="btn btn-lg" type="submit">Back</button>
                     </div>
                     <div class="col-md-6 pe-md-2">
-                    <button class="btn btn-primary btn-lg" type="submit">Checkout</button>
+                    <input id="submit" name="submit" type="submit" class="btn btn-primary btn-lg" value="Confirm"/> 
                     </div>
                 </div>
                 </form>
@@ -277,4 +267,7 @@
         </div>
     </div>
 </div>
+<script src="../js/jquery-3.6.0.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/checkout.js"></script>
 </body>

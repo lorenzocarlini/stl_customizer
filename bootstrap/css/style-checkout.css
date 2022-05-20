@@ -23,6 +23,10 @@ body {
     background-color: #eee;
 }
 
+p {
+    color: #EF233C;
+}
+
 .navbar-black{
     background-color: #2b2d42;
 }
@@ -36,6 +40,9 @@ body {
 }
 .nav-link:active {
     color: #EDF2F4;
+}
+.nav-link.active  {
+    color: #D90429;
 }
 .nav-link:focus {
     color: #D90429;
@@ -191,3 +198,10 @@ body {
         font-size: .85rem;
     }
 }
+
+
+.digits input {
+    width: 4rem;
+    text-align: center;
+    height: 38px;
+  }
