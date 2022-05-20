@@ -49,7 +49,7 @@
                   <a class="nav-link" href="#">Create</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Marketplace</a>
+                  <a class="nav-link" href="./checkout.php">Marketplace</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">About Us</a>
