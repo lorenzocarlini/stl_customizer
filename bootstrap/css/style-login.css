@@ -1,0 +1,12 @@
+body {
+    background: url('../../img/3d_print_3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.card {
+    background-color: #2B2D42;
+    color: #EDF2F4;
+}

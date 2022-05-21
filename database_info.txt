@@ -1,0 +1,7 @@
+https://wiki.archlinux.org/title/PostgreSQL#Installation
+
+nome db = webProject
+
+sudo -iu postgres
+
+postgres password = postgres
