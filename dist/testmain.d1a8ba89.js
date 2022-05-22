@@ -45841,6 +45841,14 @@ function exportASCII() {
   saveString(result, 'bounding_box.stl');
 }
 
+function exportASCII_toSession() {
+  //var singleGeometry = new THREE.Geometry();
+  //boxMesh.updateMatrix(); // as needed
+  //singleGeometry.merge(boxMesh.geometry, boxMesh.matrix);
+  var result = exporter.parse(scene.getObjectByName('text'));
+  return result;
+}
+
 function exportBinary() {
   var result = exporter.parse(scene.getObjectByName('text'), {
     binary: true
@@ -45970,7 +45978,8 @@ button_update.addEventListener('click', function (event) {
 });
 var button_order = document.getElementById('button-order');
 button_order.addEventListener('click', function (event) {
-  exportASCII();
+  //exportASCII()
+  sessionStorage.setItem('stl_file', exportASCII_toSession());
 });
 camera.position.z = 90;
 camera.position.x = 10;
@@ -46014,7 +46023,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36495" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44829" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

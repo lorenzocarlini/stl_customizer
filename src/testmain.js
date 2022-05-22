@@ -72,6 +72,15 @@ function exportASCII() {
 
 }
 
+function exportASCII_toSession() {
+    //var singleGeometry = new THREE.Geometry();
+    //boxMesh.updateMatrix(); // as needed
+    //singleGeometry.merge(boxMesh.geometry, boxMesh.matrix);
+    const result = exporter.parse(scene.getObjectByName('text')  );
+    return result;
+
+}
+
 function exportBinary() {
     const result = exporter.parse( scene.getObjectByName('text'), { binary: true } );
     saveArrayBuffer( result, 'keychain.stl' );
@@ -187,7 +196,8 @@ button_update.addEventListener('click', function (event) {
 })
 var button_order = document.getElementById('button-order')
 button_order.addEventListener('click', function (event) {
-    exportASCII()
+    //exportASCII()
+    sessionStorage.setItem('stl_file', exportASCII_toSession());
 })
 
 camera.position.z = 90;
