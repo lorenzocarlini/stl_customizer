@@ -11,12 +11,12 @@ import { STLExporter } from 'three/examples/jsm/exporters/STLExporter.js';
 
 //Renderer
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth/2, window.innerHeight/4);
+renderer.setSize(document.getElementById('wrapper-div').clientWidth, document.getElementById('wrapper-div').clientHeight/3);
 renderer.shadowMap.enabled = true
 
 var container = document.getElementById('canvas-div');
-var w = window.innerWidth/2
-var h = window.innerHeight/4
+var w = document.getElementById('wrapper-div').clientWidth
+var h = document.getElementById('wrapper-div').clientHeight/3
 //renderer.setSize(500, 200);
 container.appendChild(renderer.domElement);
 
@@ -32,16 +32,16 @@ scene.background = new THREE.Color(0x2b2d42);
 
 
 function onWindowResize() {
-    camera.aspect = (window.innerWidth/2) / (window.innerHeight/4);
+    camera.aspect = (document.getElementById('wrapper-div').clientWidth) / (document.getElementById('wrapper-div').clientHeight/3);
     camera.updateProjectionMatrix();
-renderer.setSize(window.innerWidth/2, window.innerHeight/4);
+renderer.setSize(document.getElementById('wrapper-div').clientWidth, document.getElementById('wrapper-div').clientWidth/3);
 } 
 
 window.addEventListener('resize', onWindowResize);
 
 //Controls
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target = new THREE.Vector3(10, 10, 0);
+controls.target = new THREE.Vector3(0, 10, 0);
 controls.update();
 
 // INIT HEMISPHERE LIGHT
@@ -194,6 +194,7 @@ button_update.addEventListener('click', function (event) {
         this.innerHTML = "Update Preview"
     }
 })
+
 var button_order = document.getElementById('button-order')
 button_order.addEventListener('click', function (event) {
     //exportASCII()
@@ -201,7 +202,7 @@ button_order.addEventListener('click', function (event) {
 })
 
 camera.position.z = 90;
-camera.position.x = 10;
+camera.position.x = 0;
 camera.position.y = 10;
 
 function animate() {
