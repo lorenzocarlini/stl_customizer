@@ -25,17 +25,35 @@ container.appendChild(renderer.domElement);
 //Add Camera
 var camera = new THREE.PerspectiveCamera( 30, w/h, 2, 1000 );
 
+
 //Add Scene
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x2b2d42);
 
+
+function onWindowResize() {
+    camera.aspect = (window.innerWidth/2) / (window.innerHeight/4);
+    camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth/2, window.innerHeight/4);
+} 
+
+window.addEventListener('resize', onWindowResize);
+
 //Controls
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target = new THREE.Vector3(0, 0, -40);
+controls.target = new THREE.Vector3(10, 10, 0);
 controls.update();
 
 // INIT HEMISPHERE LIGHT
 scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+// POINT LIGHT
+const light1 = new THREE.PointLight(0xff6666, 1, 100);
+light1.position.set(10,10,90)
+light1.castShadow = true;
+light1.shadow.mapSize.width = 4096;
+light1.shadow.mapSize.height = 4096;
+scene.add(light1);
 
 //STL Exporting
 const params = {
@@ -115,7 +133,7 @@ function generate_text(input) {
             text_mesh_pholder.name = 'text';
             scene.add(text_mesh_pholder);
             bounding_box = new THREE.Box3().setFromObject(scene.getObjectByName('text'));
-            scene.getObjectByName('text').position.x = -(bounding_box.max.x - bounding_box.min.x)/2;
+            scene.getObjectByName('text').position.x =-(bounding_box.max.x - bounding_box.min.x)/2;
             scene.getObjectByName('text').position.y = 0;
             scene.getObjectByName('text').position.z = 0;
             //scene.getObjectByName('text').position.z -= (bounding_box.max.z - bounding_box.min.z)/2;
@@ -177,8 +195,8 @@ camera.position.x = 10;
 camera.position.y = 10;
 
 function animate() {
+    controls.update()
     requestAnimationFrame( animate );
-
     //cube.rotation.x += 0.01;
     //cube.rotation.y += 0.01;
 
