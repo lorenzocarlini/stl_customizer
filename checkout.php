@@ -40,7 +40,6 @@
               </ul>
               <ul class="navbar-nav d-flex flex-row ms-auto me-3">
                 
-                <!-- If already logged in -->
                 <li class="nav-item dropdown  me-3 me-lg-0">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="./img/profile.png" class="rounded-circle" height="44"
@@ -61,9 +60,8 @@
 
 
 
-
-
-<div class="wrapper mt-sm-5">
+<!-- Navbar -->
+<div class="wrapper mt-sm-5 py-2">
 <h2 class="p-4">Shopping Cart</h2>
     <div class="row">
         <div id="products-list" class="me-sm-3">
@@ -78,44 +76,14 @@
                         <div class="d-flex">
                             <div class="d-flex flex-column w-50">
                                 <div class="font-weight-bold">Price:</div>
-                                <div class="font-weight-bold">Number:</div>
+                                <div class="font-weight-bold">Quantity:</div>
                             </div>
                             <div class="d-flex flex-column w-50">
-                                <div class="font-weight-bold">5€</div>
+                                <p class="font-weight-bold" id="price" >5€</p>
                                 <div class="d-flex align-items-center">
-                                    <div class="btn btn-primary"><span class="fas fa-plus"></span></div>
-                                    <div class="number">3</div>
-                                    <div class="btn btn-primary"><span class="fas fa-minus"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <div class="btn btn-dark delete border-0">
-                        <span class="fas fa-trash-alt"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row product bg-white shadow-sm m-sm-4 m-2">
-                <div class="col px-sm-3 px-2 pt-3 d-flex justify-content-center">
-                    <img src="./img/amogus.jpg" alt=""
-                        class="product-img">
-                </div>
-                <div class="col px-sm-3 px-2 pt-3">
-                    <div class="d-flex flex-column justify-content-between">
-                        <a href="#" class="text-decoration-none">Nike Men's Kyire 4</a>
-                        <div class="d-flex">
-                            <div class="d-flex flex-column w-50">
-                                <div class="font-weight-bold">Price:</div>
-                                <div class="font-weight-bold">Number:</div>
-                            </div>
-                            <div class="d-flex flex-column w-50">
-                                <div class="text-muted">100$</div>
-                                <div class="d-flex align-items-center">
-                                    <div class="btn btn-primary"><span class="fas fa-plus"></span></div>
-                                    <div class="bg-light number">3</div>
-                                    <div class="btn btn-primary"><span class="fas fa-minus"></span></div>
+                                    <div class="btn btn-primary" id="minus"><span class="fas fa-plus"></span></div>
+                                    <p id="quantity-displayed">1</p>
+                                    <div class="btn btn-primary" id="plus"><span class="fas fa-minus"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -137,17 +105,18 @@
         <div id="billing">
             <div class="col-lg-12">
                 <h4 class="mb-3">Shipping address</h4>
-                <form name="checkoutForm" action="checkout.php" method="post" onsubmit="return validateForm();">
+                <form name="checkoutForm" action="checkout_db.php" method="post" onsubmit="return validateForm();">
+                <input id="quantity" name="quantity" value="1"/> 
                 <div class="row g-3">
                     <div class="col-sm-6 pe-sm-2">
                     <label for="firstName" class="form-label">First name</label>
-                    <input type="text" id="firstName" class="form-control" placeholder="" name="firstName"/>
+                    <input type="text" id="firstName" class="form-control letters" placeholder="" name="firstName"/>
                     <p id="firstNameJS"></p>
                     </div>
         
                     <div class="col-sm-6 ps-sm-2">
                     <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" name="lastName"/>
+                    <input type="text" id="lastName" class="form-control letters"  placeholder="" name="lastName"/>
                     <p id="lastNameJS"></p>
                     </div>
         
@@ -178,7 +147,7 @@
         
                     <div class="col-md-3 ps-md-2">
                     <label for="cap" class="form-label">Cap</label>
-                    <input type="text" class="form-control" id="cap" placeholder="" maxlength="5">
+                    <input type="text" class="form-control digits" id="cap" placeholder="" maxlength="5">
                     <p id="capJS"></p>
                     </div>
                 </div>
@@ -223,32 +192,32 @@
                     </div>
         
                     <div class="col-md-6 ps-md-2">
-                    <label for="cc-number" class="form-label">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" maxlength="16">
-                    <p id="cc_numberJS"></p>
+                        <label for="cc-number" class="form-label">Credit card number</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="" maxlength="16">
+                        <p id="cc_numberJS"></p>
                     </div>
         
 
                     <div class="col-md-3" >
                     <label for="digit" class="form-label">Expiration</label>
-                    <div class="container">
-                        <div class="digits row g-0"> 
-                            <div class="col">
-                            <input type="text" class="form-control" id="digit" maxlength="2" name="digit1" placeholder="MM"/>
-                            </div>
-                            <div class="col">
-                            <input type="text" class="form-control" id="digit2" maxlength="2" name="digit2" placeholder="AA"/>
+                        <div class="container-fluid px-0">
+                            <div class="digits d-flex g-0"> 
+
+                                <input type="text" class="form-control" id="digit1" maxlength="2" name="digit1" placeholder="MM"/>
+
+                                <div class="date-spacing"> / </div>
+
+                                <input type="text" class="form-control" id="digit2" maxlength="2" name="digit2" placeholder="YY"/>
+
                             </div>
                         </div>
-                    </div>
+                        <p id="digitsJS"></p>
                     </div>
         
                     <div class="col-md-3 ps-md-2">
-                    <label for="cc-cvv" class="form-label">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Security code required
-                    </div>
+                        <label for="cc-cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control digits" id="cc-cvv" maxlength="3" name="cc-cvv" placeholder="">
+                        <p id="cc_cvvJS"></p>
                     </div>
                 </div>
         

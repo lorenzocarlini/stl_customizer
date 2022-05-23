@@ -1,6 +1,6 @@
 function validateForm() {  
     //collect form data in JavaScript variables  
-    var suggestion
+    var suggestion;
     var firstName = document.getElementById("firstName").value;  
     var lastName = document.getElementById("lastName").value;  
     var address = document.getElementById("address").value;
@@ -9,7 +9,9 @@ function validateForm() {
     var cap = document.getElementById("cap").value;
     var cc_name =  document.getElementById("cc-name").value;
     var cc_number =  document.getElementById("cc-number").value;
-
+    var cc_cvv = document.getElementById("cc-cvv").value;
+    var digit1 = document.getElementById("digit1").value;
+    var digit2 = document.getElementById("digit2").value;
 
         
     //check empty first name field  
@@ -61,24 +63,58 @@ function validateForm() {
         suggestion.scrollIntoView({block:"center",behavior: "smooth"}); 
         return false;  
     }
+    if(digit1 == "" || digit2 == "" || digit1.length!= 2 || digit2.length!= 2) {  
+        suggestion = document.getElementById("digitsJS");
+        suggestion.innerHTML = "**Insert a valid expire date"; 
+        suggestion.scrollIntoView({block:"center",behavior: "smooth"}); 
+        return false;  
+    }
+    if(cc_cvv == "") {  
+        suggestion = document.getElementById("cc_cvvJS");
+        suggestion.innerHTML = "**Enter a valid CVV"; 
+        suggestion.scrollIntoView({block:"center",behavior: "smooth"}); 
+        return false;  
+    }
     else {  
         //alert ("Your account created successfully");  
         //document.write("JavaScript form has been submitted successfully");  
     }  
 }  
 
-// Listen on the 'input' event inside the .digits area:
-document.querySelector(".digits").addEventListener("input", function(e){
+$(document).ready(function(){
+    $("#plus").click(function(){
+        var num = +$("#quantity").val() + 1;
+        $("#quantity").val(num);
+        $("#quantity-displayed").text(num);
+        $("#price").text((num*5) + "€");
+  });
+    $("#minus").click(function(){
+    if($("#quantity").val() > 1){
+        var num = +$("#quantity").val() - 1;
+        $("#quantity").val(num);
+        $("#quantity-displayed").text(num);
+        $("#price").text((num*5) + "€");
+    }
+  });
+
+});
+
+
+/*
+var letters = document.querySelectorAll("input.letters")
+
+letters.forEach(addEventListener("input", function(e){
+    // Exclude non-numeric characters from input:
+    e.target.value = e.target.value.replace(/[^a-z]+/i,'');
+
+}));
+
+    // Listen on the 'input' event inside the .digits area:
+var digits = document.querySelectorAll("input.digits");
+digits.forEach(addEventListener("input", function(e){
 
     // Exclude non-numeric characters from input:
     e.target.value = e.target.value.replace(/[^0-9]/g,'');
-  
-    // If the input value is filled and there is a neighbouring element that is input, then focus on that element:
-    if ( e.target.length > 1  && e.target && jQuery(this).attr("id")=="digit" ){
-  
-        $('#digit2').focus();
-  
-    }
-  
-  });
-  
+
+}));
+*/
