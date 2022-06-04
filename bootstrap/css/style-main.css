@@ -1,0 +1,80 @@
+body{
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    background-color: #2b2d42;
+}
+
+
+.navbar-black{
+    background-color: #2b2d42;
+}
+.nav-link {
+    color: #EDF2F4;
+}
+.nav-link:hover{
+    color: #D90429;
+}
+.nav-link:active {
+    color: #EDF2F4;
+}
+.nav-link.active  {
+    color: #D90429;
+}
+.nav-link:focus {
+    color: #D90429;
+}
+#navbarDropdownMenuLink img {
+    padding-right: 5px;
+}
+
+.overlay {
+    position:absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: inherit;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+#main-button {
+    background-color: #D90429;
+    border:1px solid #2B2D42;
+}
+#main-button:hover {
+    background-color: #EDF2F4;
+    color: #8D99AE;
+}
+
+
+.carousel-item {
+    background: rgb(0, 0, 0);
+    height: 42rem;
+    position: relative;
+
+}
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+}
+#main-link {
+    position: absolute;
+    top: 20%;
+    padding: 50px; 
+    z-index: 3;
+}
+
+.carousel-caption p {
+    color: red;
+}

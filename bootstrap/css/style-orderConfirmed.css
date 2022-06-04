@@ -1,0 +1,87 @@
+
+@media only screen and (min-width: 40em) {
+	.site-header {
+		padding-top: 150px;
+	}
+	.site-header__title {
+		font-size: 6.25rem;
+	}
+	.main-content__checkmark {
+		font-size: 9.75rem;
+	}
+	.main-content__body {
+		font-size: 1.25rem;
+	}
+	.site-footer {
+		padding: 145px 0 25px;
+	}
+	.site-footer__fineprint {
+		font-size: 1.125rem;
+	}
+}
+
+
+
+body {
+    background: url('../../img/3d_print_3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    overflow-x: hidden;
+    text-align: center;
+	word-wrap: break-word;
+	-webkit-font-smoothing: antialiased
+
+}
+
+.site-header__title {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 4.5rem;
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: auto;
+    min-height: 400px;
+    background-color: #2B2D42;
+}
+
+.container {
+    height: 100px;
+}
+
+#main-content-link{
+    color: #EF233C;
+    font-size: 2rem;
+}
+
+.main-content__checkmark {
+	font-size: 4.0625rem;
+	line-height: 1;
+	color: #24b663;
+}
+
+#site-header-title {
+    color: #EDF2F4;
+}
+#main-content-body{
+    color: #EDF2F4;
+}
+#fineprint{
+    color: #EDF2F4;
+}
+
+
+#main-content-link{
+    color: #EF233C;
+    font-size: 2rem;
+}
